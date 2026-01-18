@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jei Surya | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white selection:bg-green-500/30 overflow-x-hidden font-mono">
+    <!-- Matrix Background -->
+    <div class="matrix-bg" id="matrix-bg"></div>
+    
+    <!-- Additional Matrix Effects -->
+    <div class="fixed inset-0 pointer-events-none z-10">
+        <div class="matrix-rain" id="matrix-rain-1"></div>
+        <div class="matrix-rain" id="matrix-rain-2"></div>
+        <div class="matrix-rain" id="matrix-rain-3"></div>
+    </div>
+    
+    <!-- Floating Matrix Characters -->
+    <!-- <div class="fixed inset-0 pointer-events-none z-5 overflow-hidden">
+        <div class="matrix-float animate-pulse" style="top: 15%; left: 85%; animation-delay: 0s;">01</div>
+        <div class="matrix-float animate-pulse" style="top: 25%; right: 5%; animation-delay: 1s;">11</div>
+        <div class="matrix-float animate-pulse" style="top: 70%; left: 10%; animation-delay: 2s;">10</div>
+        <div class="matrix-float animate-pulse" style="top: 85%; right: 15%; animation-delay: 3s;">00</div>
+        <div class="matrix-float animate-pulse" style="top: 45%; right: 25%; animation-delay: 4s;">01</div>
+    </div> -->
+
+    <nav class="fixed w-full z-50 bg-black/95 border-b-2 border-green-400/30 shadow-[0_0_20px_rgba(0,255,65,0.3)]">
+        <!-- Matrix scanline effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/5 to-transparent animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
+            <!-- Logo with matrix effect -->
+            <div class="text-2xl font-black tracking-tighter text-green-400 relative">
+                <span class="drop-shadow-[0_0_10px_rgba(0,255,65,0.8)]">JS</span><span class="text-white">.</span>
+                <div class="absolute -inset-1 bg-green-400/20 blur-sm -z-10 rounded"></div>
+            </div>
+            
+            <!-- Desktop menu with matrix styling -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="relative group px-4 py-2 text-xs font-bold tracking-[0.2em] text-green-400 hover:text-white transition-all duration-300">
+                    <span class="relative z-10">ABOUT</span>
+                    <div class="absolute inset-0 border border-green-400/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="#experience" class="relative group px-4 py-2 text-xs font-bold tracking-[0.2em] text-green-400 hover:text-white transition-all duration-300">
+                    <span class="relative z-10">EXPERIENCE</span>
+                    <div class="absolute inset-0 border border-green-400/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="#projects" class="relative group px-4 py-2 text-xs font-bold tracking-[0.2em] text-green-400 hover:text-white transition-all duration-300">
+                    <span class="relative z-10">PROJECTS</span>
+                    <div class="absolute inset-0 border border-green-400/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="#skills" class="relative group px-4 py-2 text-xs font-bold tracking-[0.2em] text-green-400 hover:text-white transition-all duration-300">
+                    <span class="relative z-10">SKILLS</span>
+                    <div class="absolute inset-0 border border-green-400/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+            </div>
+            
+            <!-- Email with matrix styling -->
+            <a href="mailto:jeisurya624@mail.com" class="hidden md:block text-green-400 text-xs font-mono hover:text-white transition-all duration-300 px-3 py-1 border border-green-400/30 hover:border-green-400 hover:shadow-[0_0_10px_rgba(0,255,65,0.3)]">
+                <span class="text-green-400/60">&gt;</span> jeisurya624@mail.com
+            </a>
+            
+            <!-- Mobile menu button with matrix styling -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-xl p-2 border border-green-400/30 hover:border-green-400 hover:text-green-400 transition-all">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu with enhanced styling -->
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-black/98 border-b-2 border-green-400/30 transform -translate-y-full opacity-0 transition-all duration-300 shadow-[0_10px_30px_rgba(0,255,65,0.2)]">
+            <div class="px-6 py-8 space-y-6">
+                <a href="#about" class="block text-sm font-bold tracking-[0.2em] text-green-400 hover:text-white transition-colors px-4 py-2 border-l-2 border-transparent hover:border-green-400">ABOUT</a>
+                <a href="#experience" class="block text-sm font-bold tracking-[0.2em] text-green-400 hover:text-white transition-colors px-4 py-2 border-l-2 border-transparent hover:border-green-400">EXPERIENCE</a>
+                <a href="#projects" class="block text-sm font-bold tracking-[0.2em] text-green-400 hover:text-white transition-colors px-4 py-2 border-l-2 border-transparent hover:border-green-400">PROJECTS</a>
+                <a href="#skills" class="block text-sm font-bold tracking-[0.2em] text-green-400 hover:text-white transition-colors px-4 py-2 border-l-2 border-transparent hover:border-green-400">SKILLS</a>
+                <a href="mailto:jeisurya624@mail.com" class="block text-green-400 text-sm font-mono hover:text-white transition px-4 py-2 border border-green-400/30 hover:border-green-400">
+                    <span class="text-green-400/60">&gt;</span> jeisurya624@mail.com
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="about" class="min-h-screen flex items-center pt-20 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+            <div class="reveal relative">
+                <!-- Matrix text overlay -->
+                <div class="absolute -top-4 -left-4 text-green-400/20 text-xs font-mono pointer-events-none select-none">
+                    <div class="animate-pulse">SYSTEM_INIT...</div>
+                    <div class="animate-pulse" style="animation-delay: 0.5s;">LOADING_PROFILE...</div>
+                    <div class="animate-pulse" style="animation-delay: 1s;">ACCESS_GRANTED</div>
+                </div>
+                
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight leading-[0.9] relative">
+                    <span class="matrix-glitch">Jei Surya</span><span class="matrix-text animate-pulse">.</span>
+                    <!-- Matrix cursor -->
+                    <span class="inline-block w-1 h-16 bg-green-400 ml-2" style="animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></span>
+                </h1>
+                
+                <p class="text-lg text-gray-300 max-w-xl leading-relaxed mb-10 relative">
+                    <span class="text-green-400 font-mono text-xs block mb-2 animate-pulse">&gt; whoami</span>
+                    I am a <b class="text-white matrix-highlight">B.Tech IT student at SKCET</b>. I specialize as a <span class="text-white underline decoration-green-400/50 matrix-highlight">Developer building full-stack applications with Spring Boot and React</span> and <span class="text-white underline decoration-green-400/50 matrix-highlight">creating data-driven insights using Excel and Power BI</span>.
+                </p>
+
+                <div class="flex items-center gap-10 mb-10">
+                    <a href="https://linkedin.com/in/jeisurya15" target="_blank" class="text-3xl text-gray-400 hover:text-green-400 transition-all hover:-translate-y-2 matrix-glow hover:drop-shadow-[0_0_10px_rgba(0,255,65,0.5)]"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/jeisurya15" target="_blank" class="text-3xl text-gray-400 hover:text-white transition-all hover:-translate-y-2 matrix-glow hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"><i class="fab fa-github"></i></a>
+                    <a href="https://leetcode.com/u/Jeisurya/" target="_blank" class="text-3xl text-gray-400 hover:text-green-400 transition-all hover:-translate-y-2 matrix-glow hover:drop-shadow-[0_0_10px_rgba(0,255,65,0.5)]"><i class="fas fa-terminal"></i></a>
+                </div>
+                
+                <!-- Matrix status bar -->
+                <div class="text-xs font-mono text-green-400/60 flex gap-4 animate-pulse">
+                    <span>[ONLINE]</span>
+                    <span>STATUS: ACTIVE</span>
+                    <span>UPTIME: 24/7</span>
+                </div>
+            </div>
+
+            <div class="relative group mx-auto lg:ml-auto reveal">
+                <div class="absolute -inset-1 bg-gradient-to-tr from-green-400 to-green-600 rounded-2xl opacity-20 blur-xl group-hover:opacity-40 transition duration-500 matrix-glow"></div>
+                <div class="relative w-72 h-96 md:w-80 md:h-[28rem] overflow-hidden rounded-2xl border-2 border-green-400/30 shadow-2xl matrix-glow">
+                    <!-- Matrix overlay effect -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-green-400/10 to-green-400/20 z-10"></div>
+                    <!-- Scanline effect -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-green-400/5 to-transparent animate-pulse z-20"></div>
+                    <!-- Digital grid overlay -->
+                    <div class="absolute inset-0 opacity-30 z-30" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.1) 2px, rgba(0,255,65,0.1) 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,255,65,0.1) 2px, rgba(0,255,65,0.1) 4px);"></div>
+                    <img src="profile.jpg" alt="Jei Surya" class="w-full h-full object-cover filter contrast-125 brightness-110 hover:filter-none transition duration-700 relative z-0">
+                    <!-- Corner brackets -->
+                    <div class="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-green-400 z-40"></div>
+                    <div class="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-green-400 z-40"></div>
+                    <div class="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-green-400 z-40"></div>
+                    <div class="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-green-400 z-40"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="experience" class="py-32 px-6 relative">
+        <!-- Matrix grid overlay -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,255,65,0.1) 20px, rgba(0,255,65,0.1) 21px), repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0,255,65,0.1) 20px, rgba(0,255,65,0.1) 21px);"></div>
+        
+        <div class="max-w-4xl mx-auto content-overlay relative">
+            <!-- Terminal header -->
+            <div class="text-xs font-mono text-green-400 mb-4 animate-pulse">
+                <span>&gt; cat experience.log</span>
+            </div>
+            
+            <h3 class="text-3xl font-bold text-white mb-16 flex items-center gap-4 text-enhanced relative">
+                <span class="matrix-text font-mono text-xl animate-pulse">02.</span> Experience
+                <div class="h-[1px] flex-grow bg-green-400/30 relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-400/30 via-green-400/60 to-green-400/30 animate-pulse"></div>
+                </div>
+                <!-- Matrix particles -->
+                <div class="absolute -top-2 -right-2 text-green-400/30 text-xs animate-pulse">█</div>
+            </h3>
+
+            <div class="space-y-16">
+                <div class="relative pl-8 border-l-2 border-green-400/50 group reveal">
+                    <!-- Enhanced matrix dot -->
+                    <div class="absolute w-3 h-3 bg-green-400 rounded-full -left-[7.5px] top-1 group-hover:scale-150 transition duration-500">
+                        <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75"></div>
+                    </div>
+                    
+                    <!-- Matrix timestamp -->
+                    <div class="absolute -left-20 top-0 text-xs font-mono text-green-400/60 rotate-90 origin-left">
+                        [2025]
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-white text-enhanced matrix-glitch">Software Engineer Intern <span class="matrix-text animate-pulse">@ Mist Software Solutions</span></h4>
+                    <p class="font-mono text-xs text-gray-400 mt-1 mb-6">
+                        <span class="text-green-400">&gt;</span> June 2025 — July 2025 | Coimbatore
+                    </p>
+                    <ul class="space-y-4 text-gray-300 text-sm">
+                        <li class="flex gap-3 hover:text-green-400 transition-colors"><span class="text-green-400 mt-1 animate-pulse">▹</span> Developed automated unit testing services reducing bug identification time for the dev team.</li>
+                        <li class="flex gap-3 hover:text-green-400 transition-colors"><span class="text-green-400 mt-1 animate-pulse">▹</span> Built automated workflows integrating REST APIs and real-time data streams for dashboard insights.</li>
+                        <li class="flex gap-3 hover:text-green-400 transition-colors"><span class="text-green-400 mt-1 animate-pulse">▹</span> Utilized Jenkins for CI/CD automation, managing build code loading and test reporting.</li>
+                    </ul>
+                </div>
+                
+                <div class="relative pl-8 border-l-2 border-green-400/30 group reveal">
+                    <div class="absolute w-3 h-3 bg-green-400/70 rounded-full -left-[7.5px] top-1 group-hover:scale-150 transition">
+                        <div class="absolute inset-0 bg-green-400/70 rounded-full animate-ping opacity-75"></div>
+                    </div>
+                    
+                    <div class="absolute -left-20 top-0 text-xs font-mono text-green-400/60 rotate-90 origin-left">
+                        [2024]
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-white text-enhanced matrix-glitch">Data Analytics Intern <span class="matrix-text animate-pulse">@ Wall Vision Builders</span></h4>
+                    <p class="font-mono text-xs text-gray-400 mt-1 mb-6">
+                        <span class="text-green-400">&gt;</span> Jan 2024 — Feb 2024 | Madurai
+                    </p>
+                    <ul class="space-y-4 text-gray-300 text-sm">
+                        <li class="flex gap-3 hover:text-green-400 transition-colors"><span class="text-green-400 mt-1 animate-pulse">▹</span> Developed analytical dashboards for internal KPI and performance reporting.</li>
+                        <li class="flex gap-3 hover:text-green-400 transition-colors"><span class="text-green-400 mt-1 animate-pulse">▹</span> Performed EDA to identify business patterns and correlate datasets using Power Query.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Matrix footer -->
+            <div class="text-xs font-mono text-green-400/60 mt-16 animate-pulse">
+                <span>&gt; end of log_</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 px-6 bg-gray-900/20">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-white mb-16 flex items-center gap-4 text-enhanced">
+                <span class="matrix-text font-mono text-xl">03.</span> Projects
+                <div class="h-[1px] flex-grow bg-green-400/30"></div>
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group p-8 rounded-2xl bg-gray-900/40 border border-green-400/20 hover:border-green-400/50 transition-all reveal matrix-glow">
+                    <div class="flex justify-between items-start mb-10">
+                        <i class="far fa-comments text-4xl matrix-text"></i>
+                        <i class="fab fa-github text-xl text-gray-400 group-hover:text-white transition"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 text-enhanced">Feedback Management System</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-6 text-enhanced">Robust backend system for processing tickets and automated user feedback updates.</p>
+                    <div class="flex flex-wrap gap-2 font-mono text-[10px] matrix-text">
+                        <span>SPRING BOOT</span> • <span>JAVA</span> • <span>SQL</span>
+                    </div>
+                </div>
+                <div class="group p-8 rounded-2xl bg-gray-900/40 border border-green-400/20 hover:border-green-400/50 transition-all reveal matrix-glow">
+                    <div class="flex justify-between items-start mb-10">
+                        <i class="fas fa-heartbeat text-4xl matrix-text"></i>
+                        <a href="https://github.com/jeisurya15/fitness_goal_tracker" target="_blank" class="fab fa-github text-xl text-gray-400 group-hover:text-white transition"></a>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 text-enhanced">Fitness Goal Tracker</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-6 text-enhanced">Full-stack app featuring React dashboards and Spring Boot analytics for workout logs.</p>
+                    <div class="flex flex-wrap gap-2 font-mono text-[10px] matrix-text">
+                        <span>REACT</span> • <span>SPRING BOOT</span> • <span>SQL</span>
+                    </div>
+                </div>
+                <div class="group p-8 rounded-2xl bg-gray-900/40 border border-green-400/20 hover:border-green-400/50 transition-all reveal matrix-glow">
+                    <div class="flex justify-between items-start mb-10">
+                        <i class="fas fa-chart-line text-4xl matrix-text"></i>
+                        <i class="fab fa-github text-xl text-gray-400 group-hover:text-white transition"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 text-enhanced">Sales Performance Dashboard</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-6 text-enhanced">Cleaned and organized raw sales data using Excel formulas and data validation.</p>
+                    <div class="flex flex-wrap gap-2 font-mono text-[10px] matrix-text">
+                        <span>EXCEL</span> • <span>PIVOT TABLES</span> • <span>KPIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto content-overlay">
+            <h3 class="text-3xl font-bold text-white mb-16 flex items-center gap-4 text-enhanced">
+                <span class="matrix-text font-mono text-xl">04.</span> Skills
+                <div class="h-[1px] flex-grow bg-green-400/30"></div>
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-20">
+                <div class="reveal">
+                    <h4 class="text-2xl font-bold text-white mb-10 flex items-center gap-4 text-enhanced">Technical Proficiency</h4>
+                <div class="space-y-4">
+                    <div class="p-5 bg-gray-900/40 rounded-xl border border-green-400/20 hover:border-green-400/50 transition matrix-glow">
+                        <span class="text-[10px] font-mono matrix-text uppercase tracking-widest block mb-2">Languages</span>
+                        <p class="text-sm text-enhanced">Python, Java, C, HTML/CSS, JavaScript, SQL</p>
+                    </div>
+                    <div class="p-5 bg-gray-900/40 rounded-xl border border-green-400/20 hover:border-green-400/50 transition matrix-glow">
+                        <span class="text-[10px] font-mono matrix-text uppercase tracking-widest block mb-2">Tools & Analytics</span>
+                        <p class="text-sm text-enhanced">VS Code, Jenkins, AWS, Power BI, Excel (PivotTables, Power Query)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="text-2xl font-bold text-white mb-10 text-enhanced">Certifications</h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="flex items-center gap-4 p-4 border border-green-400/20 rounded-xl hover:bg-gray-900/40 transition matrix-glow">
+                        <i class="fas fa-certificate matrix-text"></i>
+                        <span class="text-sm font-semibold text-enhanced">Cisco Certified Professional</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 border border-green-400/20 rounded-xl hover:bg-gray-900/40 transition matrix-glow">
+                        <i class="fas fa-certificate matrix-text"></i>
+                        <span class="text-sm font-semibold text-enhanced">Accenture Developer Certification</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 border border-green-400/20 rounded-xl hover:bg-gray-900/40 transition matrix-glow">
+                        <i class="fas fa-certificate matrix-text"></i>
+                        <span class="text-sm font-semibold text-enhanced">Java & Data Structures - Infosys Springboard</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 border border-green-400/20 rounded-xl hover:bg-gray-900/40 transition matrix-glow">
+                        <i class="fas fa-certificate matrix-text"></i>
+                        <span class="text-sm font-semibold text-enhanced">Advanced Excel for Data Analytics - Udemy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="fixed bottom-8 right-8 w-12 h-12 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-40 matrix-glow">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer class="py-12 text-center border-t border-green-400/20">
+        <p class="text-[10px] font-mono tracking-[0.4em] text-gray-600 uppercase text-enhanced">Designed & Built by Jei Surya © 2026</p>
+    </footer>
+
+    <script>
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const matrixBg = document.getElementById('matrix-bg');
+            const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            for (let i = 0; i < 50; i++) {
+                const column = document.createElement('div');
+                column.style.position = 'absolute';
+                column.style.left = Math.random() * 100 + '%';
+                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                column.style.animationDelay = Math.random() * 2 + 's';
+                column.className = 'matrix-rain';
+                
+                let columnText = '';
+                for (let j = 0; j < 20; j++) {
+                    columnText += chars[Math.floor(Math.random() * chars.length)] + '<br>';
+                }
+                column.innerHTML = columnText;
+                matrixBg.appendChild(column);
+            }
+        }
+
+        // Initialize Matrix Effect
+        createMatrixRain();
+
+        // Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('-translate-y-full');
+            mobileMenu.classList.toggle('opacity-0');
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                scrollTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'invisible');
+                scrollTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Close mobile menu when clicking links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+            });
+        });
+            
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-green-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-green-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
